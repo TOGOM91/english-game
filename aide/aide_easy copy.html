@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Introduction to HTML & CSS</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      background: #f4f6f9;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Buttons */
+    .menu {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .menu button {
+      margin: 0 10px;
+      padding: 12px 22px;
+      font-size: 16px;
+      border: none;
+      background: #1ccae8;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .menu button:hover {
+      background: #91e413;
+      transform: scale(1.05);
+    }
+
+    /* Content sections */
+    .section {
+      display: none;
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .example {
+      margin-top: 15px;
+      background: #f0f0f0;
+      padding: 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Introduction to HTML & CSS</h1>
+
+<div class="menu">
+  <button onclick="showSection('html')">HTML</button>
+  <button onclick="showSection('css')">CSS</button>
+  <button onclick="showSection('htmlcss')">HTML + CSS</button>
+</div>
+
+<!-- HTML Section -->
+<div id="html" class="section">
+  <h2>What is HTML?</h2>
+  <p>
+    HTML stands for <strong>HyperText Markup Language</strong>.  
+    It is the basic structure of every website.  
+    When you create a webpage, HTML decides:
+  </p>
+
+  <ul>
+    <li>What text appears</li>
+    <li>Where the images go</li>
+    <li>What buttons or links exist</li>
+    <li>How the page is organized</li>
+  </ul>
+
+  <p>
+    Think of HTML as the “<strong>bones</strong>” of a website —  
+    everything you see on a page exists because HTML creates it.
+  </p>
+
+  <div class="example">
+    Example elements:
+    <ul>
+      <li><code>&lt;h1&gt;Title&lt;/h1&gt;</code> → page title</li>
+      <li><code>&lt;p&gt;Paragraph&lt;/p&gt;</code> → text block</li>
+      <li><code>&lt;button&gt;Click&lt;/button&gt;</code> → button</li>
+      <li><code>&lt;img&gt;</code> → image</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CSS Section -->
+<div id="css" class="section" style="display: block;">
+  <h2>What is CSS?</h2>
+  <p>
+    CSS stands for <strong>Cascading Style Sheets</strong>.  
+    If HTML is the “bones”, then CSS is the “<strong>skin and clothing</strong>”.
+  </p>
+
+  <p>CSS controls the appearance of the webpage, including:</p>
+
+  <ul>
+    <li>Colors</li>
+    <li>Sizes</li>
+    <li>Layouts</li>
+    <li>Animations</li>
+    <li>Borders, rounded corners</li>
+  </ul>
+
+  <p>
+    Without CSS, every webpage looks plain and unstyled.  
+    CSS makes websites beautiful, colorful, and modern.
+  </p>
+
+  <div class="example">
+    Simple CSS examples:
+    <ul>
+      <li>Make a box blue</li>
+      <li>Create a circle using <code>border-radius: 50%</code></li>
+      <li>Add rounded corners</li>
+      <li>Add spacing and shadows</li>
+    </ul>
+  </div>
+
+  
+<div style="margin-top: 20px;">
+
+  <!-- Example 1 -->
+  <div style="margin-top: 20px; padding: 15px; background:#f7f7f7; border-radius:8px;">
+    <div style="font-weight:bold; margin-bottom:8px;">Example 1 – Simple line</div>
+    <p>We draw a thin horizontal line using the border property.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px; ">
+        <!-- box 1 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 250px;<br>height: 0;<br>border-top: 3px solid black;
+            </pre>
+            <div style="width:250px; height:0; border-top:3px solid black; margin-top:10px;"></div>
+        </div>
+
+        <!-- box 2 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 200px;<br>height: 0;<br>border-top: 5px dashed blue;
+            </pre>
+            <div style="width:200px; height:0; border-top:5px dashed blue; margin-top:10px;"></div>
+        </div>
+
+        <!-- box 3 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 180px;<br>height: 0;<br>border-top: 4px dotted green;
+            </pre>
+            <div style="width:180px; height:0; border-top:4px dotted green; margin-top:10px;"></div>
+        </div>
+
+        <!-- box 4 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 250px;<br>height: 0;<br>border-top: 6px double purple;
+            </pre>
+            <div style="width:250px; height:0; border-top:6px double purple; margin-top:10px;"></div>
+        </div>
+
+        <!-- box 5 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 220px;<br>height: 0;<br>border-top: 5px groove orange;
+            </pre>
+            <div style="width:220px; height:0; border-top:5px groove orange; margin-top:10px;"></div>
+        </div>
+
+        <!-- box 6 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 230px;<br>height: 0;<br>border-top: 5px ridge brown;
+            </pre>
+            <div style="width:230px; height:0; border-top:5px ridge brown; margin-top:10px;"></div>
+        </div>
+
+        <!-- box 7 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 240px;<br>height: 0;<br>border-top: 5px inset gray;
+            </pre>
+            <div style="width:240px; height:0; border-top:5px inset gray; margin-top:10px;"></div>
+        </div>
+
+        <!-- box 8 -->
+        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
+            <pre style="background:white; padding:10px; border-radius:6px;">
+width: 260px;<br>height: 0;<br>border-top: 5px outset red;
+            </pre>
+            <div style="width:260px; height:0; border-top:5px outset red; margin-top:10px;"></div>
+        </div>
+    </div>
+
+
+<div style="margin-top:25px; background:white; padding:15px; border-radius:8px;">
+    <p><strong>What do these properties mean?</strong></p>
+    <ul>
+      <li><strong>width</strong>: the horizontal length of the line (you can use 260px, 200px, 150px, 100px…).</li>
+      <li><strong>height</strong>: set to 0 here because we only want a line, not a box.</li>
+      <li>
+        <strong>border-top</strong>: draws a line on the top edge.  
+        It has 3 parts: <code>thickness style color</code>, for example  
+        <code>3px solid black</code>.
+      </li>
+    </ul>
+
+    <p><strong>Common border styles:</strong></p>
+    <ul>
+      <li><code>solid</code> – normal continuous line</li>
+      <li><code>dashed</code> – broken line made of short dashes</li>
+      <li><code>dotted</code> – line made of dots</li>
+      <li><code>double</code> – two parallel lines</li>
+      <li><code>groove</code> – looks like a 3D carved line</li>
+      <li><code>ridge</code> – the opposite of groove, looks raised</li>
+      <li><code>inset</code> – looks pressed into the page</li>
+      <li><code>outset</code> – looks like it is coming out of the page</li>
+    </ul>
+
+    <p><strong>Extra:</strong> <code>border-radius</code> is used to round corners.  
+      It does not affect these lines, but it is very useful for boxes and buttons in the next examples.</p>
+  </div>
+
+
+
+
+  </div>
+
+  <!-- Example 2 -->
+  <div style="margin-top: 20px; padding: 15px; background:#f7f7f7; border-radius:8px;">
+    <div style="font-weight:bold; margin-bottom:8px;">Example 2 – Blue rectangle</div>
+    <p>Adding width, height and background creates a simple box.</p>
+
+    <pre style="background:white; padding:10px; border-radius:6px;">
+width: 150px;<br>height: 80px;<br>background: #1CCAE8;
+    </pre>
+
+    <div style="width: 150px; height: 80px; background:#1CCAE8; margin-top:10px;"></div>
+  </div>
+
+  <!-- Example 3 -->
+  <div style="margin-top: 20px; padding: 15px; background:#f7f7f7; border-radius:8px;">
+    <div style="font-weight:bold; margin-bottom:8px;">Example 3 – Rounded rectangle</div>
+    <p>We add <code>border-radius</code> to round the corners.</p>
+
+    <pre style="background:white; padding:10px; border-radius:6px;">
+width: 150px;<br>height: 80px;<br>background: #56D9BA;<br>border-radius: 15px;
+    </pre>
+
+    <div style="width: 150px; height: 80px; background:#56D9BA; border-radius:15px; margin-top:10px;"></div>
+  </div>
+
+  <!-- Example 4 -->
+  <div style="margin-top: 20px; padding: 15px; background:#f7f7f7; border-radius:8px;">
+    <div style="font-weight:bold; margin-bottom:8px;">Example 4 – Circle</div>
+    <p>A perfect circle is made using equal width + height and border-radius: 50%.</p>
+
+    <pre style="background:white; padding:10px; border-radius:6px;">
+width: 100px;<br>height: 100px;<br>background: #91E413;<br>border-radius: 50%;
+    </pre>
+
+    <div style="width: 100px; height: 100px; background:#91E413; border-radius:50%; margin-top:10px;"></div>
+  </div>
+
+  <!-- Example 5 -->
+  <div style="margin-top: 20px; padding: 15px; background:#f7f7f7; border-radius:8px;">
+    <div style="font-weight:bold; margin-bottom:8px;">Example 5 – Red box with border</div>
+    <p>This example uses several properties together. The last border-radius overrides the previous one.</p>
+
+    <pre style="background:white; padding:10px; border-radius:6px;">
+width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 50%;<br>border-radius: 10px;<br>border: 3px solid black;
+    </pre>
+
+    <div style="width: 120px; height: 80px; background:red; border-radius:10px; border:3px solid black; margin-top:10px;"></div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<!-- HTML + CSS Section -->
+<div id="htmlcss" class="section">
+  <h2>How HTML and CSS Work Together</h2>
+  <p>
+    A real webpage uses <strong>both HTML and CSS together</strong>.
+  </p>
+
+  <p>
+    HTML creates the content (text, buttons, images).  
+    CSS makes the content look good (colors, size, style).
+  </p>
+
+  <p>
+    Example:
+  </p>
+
+  <ul>
+    <li>HTML creates a button</li>
+    <li>CSS makes the button green, bigger, and rounded</li>
+  </ul>
+
+  <p>
+    When combined, they form what you see on modern websites every day.
+  </p>
+
+  <div class="example">
+    This section explains:
+    <ul>
+      <li>Why HTML needs CSS</li>
+      <li>Why CSS needs HTML</li>
+      <li>How they create real user interfaces</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
