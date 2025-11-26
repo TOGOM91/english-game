@@ -256,8 +256,39 @@ function loadLevel() {
   } else {
     const html = level.html || '';
     const css = level.css || '';
-    challengePreview.innerHTML = `<style>${css}</style>${html}`;
+  
+    // On vide d'abord la cible
+    challengePreview.innerHTML = '';
+  
+    // On crée un iframe pour isoler le CSS attendu
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('sandbox', 'allow-same-origin');
+    iframe.style.width = '100%';
+    iframe.style.height = '180px';
+    iframe.style.border = 'none';
+  
+    challengePreview.appendChild(iframe);
+  
+    const doc = iframe.contentDocument || iframe.contentWindow.document;
+    doc.open();
+    doc.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <style>
+            body { margin: 0; display:flex; align-items:center; justify-content:center; height:100vh; background:transparent; }
+            ${css}
+          </style>
+        </head>
+        <body>
+          ${html}
+        </body>
+      </html>
+    `);
+    doc.close();
   }
+  
+  
 
   // Mettre à jour le compteur de niveau
   const totalLevels = levelArray.length;
@@ -271,7 +302,7 @@ function loadLevel() {
   } else if (currentMode === 'html') {
     editorEl.placeholder = 'Écrivez votre HTML ici...';
   } else {
-    editorEl.placeholder = 'Écrivez votre CSS pour styliser le HTML du niveau...';
+    editorEl.placeholder = 'Écrivez votre structure comme : <div class="container">...</div>\nÉcrivez votre CSS dans <style>...</style>';
   }
 
   // Palette de couleurs dynamique (uniquement couleurs du niveau)
@@ -292,53 +323,139 @@ function startTimer() {
   }, 1000);
 }
 
+
+// Sépare le CSS (dans <style>...</style>) et le HTML du reste
+function splitHtmlAndCss(code) {
+    let htmlPart = code;
+    let cssPart = '';
+  
+    const styleRegex = /<style[^>]*>([\s\S]*?)<\/style>/i;
+    const match = code.match(styleRegex);
+  
+    if (match) {
+      cssPart = match[1].trim(); // contenu du <style> ... </style>
+      // on enlève le <style> complet de la partie HTML
+      htmlPart = (code.slice(0, match.index) + code.slice(match.index + match[0].length)).trim();
+    }
+  
+    return { html: htmlPart, css: cssPart };
+  }
+  
+  
 // Aperçu en direct
 function updateLivePreview() {
-  const level = levels[currentMode][currentDifficulty][currentLevelIndex];
-
-  try {
-    if (currentMode === 'css') {
-      preview.innerHTML = '';
-      preview.style.cssText = editorEl.value;
-    } else if (currentMode === 'html') {
-      preview.style.cssText = '';
-      preview.innerHTML = editorEl.value;
-    } else {
-      const userCode = editorEl.value;
-      const baseHtml = level.html || '';
-      preview.style.cssText = '';
-      preview.innerHTML = `<style>${userCode}</style>${baseHtml}`;
+    const level = levels[currentMode][currentDifficulty][currentLevelIndex];
+  
+    try {
+      if (currentMode === 'css') {
+        // Mode CSS : ton CSS direct sur la preview
+        preview.innerHTML = '';
+        preview.style.cssText = editorEl.value;
+      } else if (currentMode === 'html') {
+        // Mode HTML : on affiche ton HTML tel quel
+        preview.style.cssText = '';
+        preview.innerHTML = editorEl.value;
+      } else {
+        // Mode HTML+CSS : le joueur écrit HTML + CSS
+        const userCode = editorEl.value.trim();
+  
+        // On reset la zone de preview
+        preview.innerHTML = '';
+        preview.style.cssText = '';
+  
+        if (userCode === '') {
+          // Rien tapé → preview vide
+          return;
+        }
+  
+        // On récupère html + css du joueur
+        const { html, css } = splitHtmlAndCss(userCode);
+  
+        // On isole tout ça dans un iframe
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('sandbox', 'allow-same-origin');
+        iframe.style.width = '100%';
+        iframe.style.height = '180px';
+        iframe.style.border = 'none';
+  
+        preview.appendChild(iframe);
+  
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        doc.open();
+        doc.write(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <style>
+                body {
+                  margin: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100vh;
+                  background: transparent;
+                }
+                ${css || ''}
+              </style>
+            </head>
+            <body>
+              ${html || ''}
+            </body>
+          </html>
+        `);
+        doc.close();
+      }
+    } catch (e) {
+      console.error("Erreur dans l'aperçu en direct:", e);
     }
-  } catch (e) {
-    console.error("Erreur dans l'aperçu en direct:", e);
   }
-}
+  
 
-function checkAnswer() {
-  if (!gameStarted) {
-    alert('Clique d’abord sur "Démarrer" pour lancer la partie 🙂');
-    return;
+  
+  
+
+  function checkAnswer() {
+    if (!gameStarted) {
+      alert('Clique d’abord sur "Démarrer" pour lancer la partie 🙂');
+      return;
+    }
+  
+    const level = levels[currentMode][currentDifficulty][currentLevelIndex];
+    const userCode = editorEl.value.trim();
+  
+    let isCorrect = false;
+  
+    if (currentMode === 'css') {
+      // Mode CSS Only → on compare uniquement les déclarations CSS
+      isCorrect = compareCSSFlexible(userCode, level.css);
+  
+    } else if (currentMode === 'html') {
+      // Mode HTML Only → comparaison stricte (comme tu l'avais)
+      isCorrect = compareHTML(userCode, level.html);
+  
+    } else if (currentMode === 'htmlcss') {
+      // Mode HTML + CSS → le joueur doit écrire HTML + CSS
+      const parts = splitHtmlAndCss(userCode);
+      const userHtml = parts.html;
+      const userCss = parts.css;
+  
+      if (!userHtml || !userCss) {
+        isCorrect = false;
+      } else {
+        const okHtml = compareHTMLFlexible(userHtml, level.html);   // souple
+        const okCss  = compareCSSFlexible(userCss, level.css);      // déjà souple
+        isCorrect = okHtml && okCss;
+      }
+    }
+  
+    if (isCorrect) {
+      handleCorrectAnswer();
+    } else {
+      handleIncorrectAnswer();
+    }
   }
-
-  const level = levels[currentMode][currentDifficulty][currentLevelIndex];
-  const userCode = editorEl.value.trim();
-
-  let isCorrect = false;
-
-  if (currentMode === 'css') {
-    isCorrect = compareCSSFlexible(userCode, level.css);
-  } else if (currentMode === 'html') {
-    isCorrect = compareHTML(userCode, level.html);
-  } else {
-    isCorrect = compareCSSFlexible(userCode, level.css);
-  }
-
-  if (isCorrect) {
-    handleCorrectAnswer();
-  } else {
-    handleIncorrectAnswer();
-  }
-}
+  
+  
 
 /* ===== COMPARAISON CSS PLUS FLEXIBLE ===== */
 
@@ -392,14 +509,36 @@ function compareHTML(user, expected) {
     const container = document.createElement('div');
     container.innerHTML = html.trim();
     return container.innerHTML
-      .replace(/\s+/g, ' ')
-      .replace(/>\s+</g, '><')
-      .trim()
-      .lowerCase();
+    .replace(/>\s+</g, '><')
+    .trim()
+    .toLowerCase();
+
   };
 
   return normalize(user) === normalize(expected);
 }
+
+function compareHTMLFlexible(user, expected) {
+    if (!user || !expected) return false;
+  
+    const normalize = (html) => {
+      return html
+        .replace(/\s+/g, ' ')
+        .replace(/>\s+</g, '><')
+        .trim()
+        .toLowerCase();
+    };
+  
+    const u = normalize(user);
+    const e = normalize(expected);
+  
+    // 1) Exactement pareil → ok
+    if (u === e) return true;
+  
+    // 2) L'HTML attendu est contenu dans le code du joueur → ok
+    return u.includes(e);
+  }
+  
 
 function handleCorrectAnswer() {
   showResult(true);
