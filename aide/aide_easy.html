@@ -55,6 +55,41 @@
       padding: 12px;
       border-radius: 8px;
     }
+/*Example Box Template*/
+    .html-box {
+      border:1px solid #ccc; 
+      background:#fafafa; 
+      padding:15px; 
+      border-radius:10px; 
+      margin:25px 0;
+    }
+    .code-title {
+      font-weight:bold;
+      margin-bottom:5px;
+      color:#444;
+    }
+    .code-box {
+      background:white; 
+      padding:10px; 
+      border-radius:6px; 
+      border:1px solid #ddd;
+      margin-bottom:10px;
+      white-space:pre;
+      font-family: monospace;
+    }
+    .preview-box {
+      padding:10px; 
+      border:1px dashed #aaa; 
+      border-radius:6px; 
+      margin-bottom:10px;
+      background:white;
+    }
+    .explain-box {
+      background:white; 
+      padding:10px; 
+      border-radius:6px; 
+      border:1px solid #ddd;
+    }
   </style>
 </head>
 <body>
@@ -67,18 +102,19 @@
   <button onclick="showSection('htmlcss')">HTML + CSS</button>
 </div>
 
+
 <!-- HTML Section -->
 <div id="html" class="section">
   <h2>What is HTML?</h2>
   <p>
-    HTML stands for <strong>HyperText Markup Language</strong>.  
-    It is the basic structure of every website.  
-    When you create a webpage, HTML decides:
+    HTML stands for <strong>HyperText Markup Language</strong>. 
+    It is the structure of every webpage.
   </p>
 
+  <p>HTML decides:</p>
   <ul>
     <li>What text appears</li>
-    <li>Where the images go</li>
+    <li>Where images go</li>
     <li>What buttons or links exist</li>
     <li>How the page is organized</li>
   </ul>
@@ -88,19 +124,248 @@
     everything you see on a page exists because HTML creates it.
   </p>
 
-  <div class="example">
-    Example elements:
-    <ul>
-      <li><code>&lt;h1&gt;Title&lt;/h1&gt;</code> → page title</li>
-      <li><code>&lt;p&gt;Paragraph&lt;/p&gt;</code> → text block</li>
-      <li><code>&lt;button&gt;Click&lt;/button&gt;</code> → button</li>
-      <li><code>&lt;img&gt;</code> → image</li>
-    </ul>
+  <style>
+    .html-box {
+      border:1px solid #ccc; 
+      background:#fafafa; 
+      padding:15px; 
+      border-radius:10px; 
+      margin:25px 0;
+    }
+    .code-title {
+      font-weight:bold;
+      margin-bottom:5px;
+      color:#444;
+    }
+    .code-box {
+      background:white; 
+      padding:10px; 
+      border-radius:6px; 
+      border:1px solid #ddd;
+      margin-bottom:10px;
+      white-space:pre;
+      font-family: monospace;
+    }
+    .preview-box {
+      padding:10px; 
+      border:1px dashed #aaa; 
+      border-radius:6px; 
+      margin-bottom:10px;
+      background:white;
+    }
+    .explain-box {
+      background:white; 
+      padding:10px; 
+      border-radius:6px; 
+      border:1px solid #ddd;
+    }
+  </style>
+
+
+  <!-- Example 1: Heading -->
+  <div class="html-box">
+    <h3>Example 1 – Heading (&lt;h2&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;h2&gt;This is a section title&lt;/h2&gt;
+    </div>
+
+    <div class="preview-box">
+      <h2>This is a section title</h2>
+    </div>
+
+    <div class="explain-box">
+      <strong>What does it do?</strong>
+      <ul>
+        <li>&lt;h1&gt; = Main title</li>
+        <li>&lt;h2&gt; → &lt;h6&gt; = subtitles</li>
+        <li>Used for structure, not visual styling</li>
+      </ul>
+    </div>
   </div>
+
+
+  <!-- Example 2: Paragraph -->
+  <div class="html-box">
+    <h3>Example 2 – Paragraph (&lt;p&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;p&gt;This is a simple text paragraph.&lt;/p&gt;
+    </div>
+
+    <div class="preview-box">
+      <p>This is a simple text paragraph.</p>
+    </div>
+
+    <div class="explain-box">
+      <strong>What does it do?</strong>
+      <ul>
+        <li>Creates a text block</li>
+        <li>Browser automatically adds spacing</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Example 3: Link -->
+  <div class="html-box">
+    <h3>Example 3 – Link (&lt;a&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;a href=&quot;https://example.com&quot;&gt;Visit website&lt;/a&gt;
+    </div>
+
+    <div class="preview-box">
+      <a href="#">Visit website</a>
+    </div>
+
+    <div class="explain-box">
+      <strong>Key points:</strong>
+      <ul>
+        <li><strong>href</strong> contains the target URL</li>
+        <li>Used to link pages, files, email, phone</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Example 4: Button -->
+  <div class="html-box">
+    <h3>Example 4 – Button (&lt;button&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;button&gt;Click me&lt;/button&gt;
+    </div>
+
+    <div class="preview-box">
+      <button>Click me</button>
+    </div>
+
+    <div class="explain-box">
+      <strong>Key points:</strong>
+      <ul>
+        <li>A clickable button</li>
+        <li>Often used with JavaScript</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Example 5: Image -->
+  <div class="html-box">
+    <h3>Example 5 – Image (&lt;img&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;img src=&quot;photo.jpg&quot; alt=&quot;A photo&quot; width=&quot;120&quot;&gt;
+    </div>
+
+    <div class="preview-box">
+      <img src="https://via.placeholder.com/120" alt="A photo">
+    </div>
+
+    <div class="explain-box">
+      <strong>Key points:</strong>
+      <ul>
+        <li><strong>src</strong> = image source</li>
+        <li><strong>alt</strong> = description text</li>
+        <li>Image tag is self-closing</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Example 6: List -->
+  <div class="html-box">
+    <h3>Example 6 – List (&lt;ul&gt; + &lt;li&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+    </div>
+
+    <div class="preview-box">
+      <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+      </ul>
+    </div>
+
+    <div class="explain-box">
+      <strong>Key points:</strong>
+      <ul>
+        <li>&lt;ul&gt; = unordered list (bullets)</li>
+        <li>&lt;li&gt; = list item</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Example 7: Input -->
+  <div class="html-box">
+    <h3>Example 7 – Input (&lt;input&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;input type=&quot;text&quot; placeholder=&quot;Your name&quot;&gt;
+    </div>
+
+    <div class="preview-box">
+      <input type="text" placeholder="Your name">
+    </div>
+
+    <div class="explain-box">
+      <strong>Common types:</strong>
+      <ul>
+        <li>text</li>
+        <li>password</li>
+        <li>email</li>
+        <li>number</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Example 8: Label -->
+  <div class="html-box">
+    <h3>Example 8 – Label (&lt;label&gt;)</h3>
+
+    <div class="code-title">Code:</div>
+    <div class="code-box">
+&lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+&lt;input id=&quot;email&quot; type=&quot;email&quot;&gt;
+    </div>
+
+    <div class="preview-box">
+      <label for="email">Email:</label>
+      <input id="email" type="email">
+    </div>
+
+    <div class="explain-box">
+      <strong>Key points:</strong>
+      <ul>
+        <li>Label describes an input</li>
+        <li>Clicking label selects the input</li>
+        <li><strong>for</strong> connects label & input</li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 
+
+
+
+
 <!-- CSS Section -->
-<div id="css" class="section" style="display: block;">
+<div id="css" class="section">
   <h2>What is CSS?</h2>
   <p>
     CSS stands for <strong>Cascading Style Sheets</strong>.  
