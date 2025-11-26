@@ -406,7 +406,7 @@ textarea:focus {
 #start {
   display: block;
   margin: 0 auto 15px;
-  padding: 10px 26px;
+  padding: 13px 29px;
   border-radius: 999px;
   border: none;
   background: var(--accent);
@@ -414,6 +414,7 @@ textarea:focus {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 17px;
 }
 
 #start:hover:not(:disabled) {
