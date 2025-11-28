@@ -1,0 +1,133 @@
+.flex{
+  display: flex;
+  gap: 50px;
+  margin: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/*----------Easy--------------------------------------------------*/
+
+.carte11 {
+  width: 94px;    
+  height: 94px;    
+  background-color: #FF0000;    
+  border-radius: 50%; 
+}
+
+.carte12 {
+  width: 87px;    
+  height: 137px;  
+  border: 6px solid #E04997;
+  border-radius: 12px; 
+}
+
+.carte13 {
+  width: 100px;
+  height: 138px;
+  background-color: #1CCAE8;
+}
+
+.carte14 {
+  width: 100px;
+  height: 152px;
+  background-color: #D25400;
+  clip-path: polygon( 50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+
+
+
+/*----------Medium--------------------------------------------------*/
+.carte2 {
+    width: 0;
+    height: 0;
+    position: relative;
+    border-left: 54.5px solid transparent;
+    border-right: 54.5px solid transparent; /* 109/2=54.5 */
+    border-bottom: 109px solid rgb(14, 17, 211);
+}
+.carte2::after { 
+    content: ""; 
+    width: 0; 
+    height: 0; 
+    top: 8px; 
+    position: absolute; 
+    transform: translateX(-50%);
+    border-left: 48.5px solid transparent; 
+    border-right: 48.5px solid transparent; 
+    border-bottom: 97px solid rgb(251, 234, 8); /* border:6px = 6*2 = 12px 109-12=97*/
+}
+
+.carte4 {
+    width: 80px;            /* 六边形宽 */
+    height: 40px;           /* 六边形中间高度 */
+    border: 8px solid #8cff00;   /* 描边颜色和粗细 */
+    border-radius: 14px;    /* 圆角 */
+    position: relative;
+    background: transparent;
+    box-sizing: border-box;
+}
+/* 上部分 */
+.carte4::before {
+  content: "";
+  position: absolute;
+  top: -24px;             /* 根据高度调 */
+  left: 0;
+  width: 80px;
+  height: 40px;
+  border: 8px solid #8cff00;
+  border-radius: 14px;
+  background: transparent;
+  transform: rotate(60deg);
+  box-sizing: border-box;
+}
+
+/* 下部分 */
+.carte4::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 80px;
+  height: 40px;
+  border: 8px solid #8cff00;
+  border-radius: 14px;
+  background: transparent;
+  transform: rotate(-60deg);
+  box-sizing: border-box;
+}
+
+
+
+.carte5 {
+
+}
+.carte6 {
+
+}
+.carte7 {
+
+}
+.carte8 {
+
+}
+
+
+/*----------Hard--------------------------------------------------*/
+
+
+
+/*----------html + CSS--------------------------------------------------*/
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid rgb(78, 255, 243);
+}
+
+.wrap {
+  transform: scale(2); /* 放大 2 倍 */
+  transform-origin: center;
+}

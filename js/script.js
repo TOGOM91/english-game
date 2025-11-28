@@ -21,6 +21,7 @@ const levelCounter = document.getElementById('levelCounter');
 const timerDisplay = document.getElementById('timerDisplay');
 const resultMessage = document.getElementById('resultMessage');
 const startBtn = document.getElementById('start');
+const stopBtn = document.getElementById('stop');
 const colorPalette = document.getElementById('colorPalette');
 const compareBtn = document.getElementById('compareBtn'); 
 const assistToggle = document.getElementById('holo-check');
@@ -311,7 +312,7 @@ else {
       <html>
         <head>
           <style>
-            body { margin: 0; display:flex; align-items:center; justify-content:center; height:100vh; background:transparent; }
+            body { margin: 0; display:flex; align-items:center; justify-content:center; height:100vh; background:transparent; color: white; }
             ${css}
           </style>
         </head>
@@ -336,6 +337,7 @@ else {
     editorEl.placeholder = 'Write your CSS here...';
   } else if (currentMode === 'html') {
     editorEl.placeholder = 'Write your HTML here...';
+    
   } else {
     editorEl.placeholder = 'Write your structure as: <div class="container">...</div>\nWrite your CSS in <style>...</style>';
   }
@@ -350,6 +352,7 @@ else {
 // Timer (uniquement après clic sur Start)
 function startTimer() {
   clearInterval(timerInterval);
+  stopBtn.style.display = 'block';
   timerInterval = setInterval(() => {
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
     const minutes = Math.floor(elapsed / 60);
@@ -357,6 +360,29 @@ function startTimer() {
     timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   }, 1000);
 }
+
+function endGame() {
+    if (!gameStarted) return;
+
+    stopBtn.style.display = 'none';
+    
+  
+    gameStarted = false;
+    clearInterval(timerInterval);
+  
+    // On récupère le temps final affiché
+    const finalTime = timerDisplay.textContent || '00:00';
+  
+    // Message de fin avec score + temps
+    resultMessage.textContent = `Session ended – Score : ${score} pts | Time : ${finalTime}`;
+    resultMessage.className = 'result-message correct';
+  
+    // On remet le bouton Start cliquable
+    startBtn.textContent = 'Restart';
+    startBtn.disabled = false;
+  }
+  
+
 
 
 // Sépare le CSS (dans <style>...</style>) et le HTML du reste
@@ -441,7 +467,7 @@ function updateLivePreview() {
         doc.close();
       }
     } catch (e) {
-      console.error("Erreur dans l'aperçu en direct:", e);
+      console.error("Error in live preview:", e);
     }
   }
   
@@ -451,7 +477,7 @@ function updateLivePreview() {
 
   function checkAnswer() {
     if (!gameStarted) {
-      alert('Clique d’abord sur "Démarrer" pour lancer la partie 🙂');
+      alert('First click on “Start” to begin the game. 🙂');
       return;
     }
   
@@ -578,17 +604,23 @@ function compareHTMLFlexible(user, expected) {
   function handleCorrectAnswer() {
     showResult(true);
   
+
     // base points = comme avant
-    let points = Math.max(20, 100 - (hintsUsed * 20)); // min 20 pts
-  
-    // 🧠 impact du mode assisté
-    if (assistMode) {
-      // Mode assisté activé → moins de points
-      points = Math.round(points * 0.7); // -30% par exemple
-    } else {
-      // Mode “no assist” → éventuellement petit bonus
-      points = Math.round(points * 1.0); // laisse à 1.0 si tu ne veux pas de bonus
-    }
+let points = Math.max(20, 100 - (hintsUsed * 20)); // min 20 pts
+
+// 🎯 Bonus selon la difficulté
+if (currentDifficulty === 'medium') {
+  points = Math.round(points * 1.3);   // +30%
+} else if (currentDifficulty === 'hard') {
+  points = Math.round(points * 1.6);   // +60%
+}
+
+// 🧠 impact du mode assisté
+if (assistMode) {
+  // Mode assisté → moins de points
+  points = Math.round(points * 0.7); // -30%
+}
+
   
     score += points;
     gameState.score = score;
@@ -2270,10 +2302,13 @@ const CSS_SNIPPETS = {
     updateLivePreview();
   });
   
-startBtn.addEventListener('click', startGame);
-if (compareBtn) {
-  compareBtn.addEventListener('click', toggleComparison);
-}
+startBtn.addEventListener('click', startGame); 
+if (stopBtn) {
+    stopBtn.addEventListener('click', endGame); // 🆕
+  }
+
+
+
 
 // Initialiser le jeu
 init();
