@@ -7,19 +7,23 @@
     body {
       margin: 0;
       padding: 30px;
-      background: #0f172a;
-      font-family: Arial, sans-serif;
+      background: #1a2238;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
     }
 
     h1 {
       text-align: center;
       color: #ffffff;
+      margin-bottom: 30px;
+      font-weight: 300;
     }
 
     /* Buttons */
     .menu {
       text-align: center;
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     .menu button {
@@ -27,108 +31,137 @@
       padding: 12px 22px;
       font-size: 16px;
       border: none;
-      background:linear-gradient(135deg,#1CCAE8,#9D4EDD);
-      color: rgb(255, 255, 255);
+      background: linear-gradient(135deg, #3a7bd5, #6a11cb);
+      color: white;
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
+      font-weight: 500;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .menu button:hover {
-      background: #91e413;
-      transform: scale(1.05);
+      background: linear-gradient(135deg, #6a11cb, #3a7bd5);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
 
     /* Content sections */
     .section {
       display: none;
-      background:linear-gradient(135deg,#1CCAE8,#9D4EDD);
-      padding: 20px;
+      background: #2d374d;
+      padding: 25px;
       margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      color: #000;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      color: #e0e0e0;
+    }
+
+    .section h2 {
+      color: #ffffff;
+      border-bottom: 1px solid #3a7bd5;
+      padding-bottom: 10px;
+      margin-top: 0;
     }
 
     .example {
       margin-top: 15px;
-      background:linear-gradient(135deg,#8bff68,#667ef7);
-      padding: 12px;
+      background: #3a445c;
+      padding: 15px;
       border-radius: 8px;
+      border-left: 4px solid #3a7bd5;
     }
-/*Example Box Template*/
+
+    /* Example Box Template */
     .html-box {
-      border:1px solid #ccc; 
-      background:linear-gradient(135deg,#8bff68,#667ef7);
-      padding:15px; 
-      border-radius:10px; 
-      margin:25px 0;
+      border: 1px solid #3a445c;
+      background: #2d374d;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
+
+    .html-box h3 {
+      color: #ffffff;
+      margin-top: 0;
+    }
+
     .code-title {
-      font-weight:bold;
-      margin-bottom:5px;
-      color:#444;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #b0b0b0;
     }
+
     .code-box {
-      background:linear-gradient(135deg,#1CCAE8,#9D4EDD); 
-      padding:10px; 
-      border-radius:6px; 
-      border:1px solid #ddd;
-      margin-bottom:10px;
-      white-space:pre;
-      font-family: monospace;
+      background: #1a2238;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #3a445c;
+      margin-bottom: 15px;
+      white-space: pre;
+      font-family: 'Consolas', monospace;
+      color: #e0e0e0;
+      overflow-x: auto;
     }
+
     .preview-box {
-      padding:10px; 
-      border:1px dashed #aaa; 
-      border-radius:6px; 
-      margin-bottom:10px;
-      background:#e3e3e3;
+      padding: 15px;
+      border: 1px dashed #5a657a;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      background: #3a445c;
     }
+
     .explain-box {
-      background:#e3e3e3; 
-      padding:10px; 
-      border-radius:6px; 
-      border:1px solid #ddd;
+      background: #3a445c;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #5a657a;
     }
 
     .input-card {
-      border:1px solid #ccc;
-      border-radius:12px;
-      padding:18px;
+      border: 1px solid #5a657a;
+      border-radius: 12px;
+      padding: 18px;
       width: 240px;
-      background:#e3e3e3;
+      background: #3a445c;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-    .input-card .code-title {
-      font-weight:bold;
-      margin-bottom:5px;
-    }
-    .input-card .code-box {
-      background:white; 
-      padding:10px; 
-      border-radius:6px; 
-      border:1px solid #ddd;
-      margin-bottom:10px;
-      font-family: monospace;
 
-      /* 关键是这两行：让代码既保留换行，又能自动折行 */
+    .input-card .code-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #b0b0b0;
+    }
+
+    .input-card .code-box {
+      background: #1a2238;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #5a657a;
+      margin-bottom: 10px;
+      font-family: 'Consolas', monospace;
       white-space: pre-wrap;
       word-break: break-word;
+      color: #e0e0e0;
     }
+
     .input-card .preview-box {
-      background:#fff;
-      border:1px dashed #aaa;
-      border-radius:6px;
-      padding:12px;
-      min-height:50px;
+      background: #2d374d;
+      border: 1px dashed #5a657a;
+      border-radius: 6px;
+      padding: 12px;
+      min-height: 50px;
     }
 
     .color-box {
       width: 120px;
       height: 80px;
-      background: #3498db;
+      background: #3a7bd5;
       border-radius: 10px;
     }
+
     .btn-green {
       background: #28c76f;
       color: white;
@@ -138,14 +171,58 @@
       font-size: 16px;
       cursor: pointer;
       font-weight: bold;
+      transition: 0.2s;
     }
+
+    .btn-green:hover {
+      background: #24b363;
+    }
+
     .card {
       width: 200px;
       padding: 15px;
       border-radius: 10px;
       background: #ff7979;
-      box-shadow: 0 2px 8px rgba(0,0,0,1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
+    }
+
+    /* CSS Examples */
+    .css-example {
+      margin-top: 20px;
+      padding: 20px;
+      background: #3a445c;
+      border-radius: 8px;
+    }
+
+    .css-example-title {
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #ffffff;
+      font-size: 1.1em;
+    }
+
+    .css-code {
+      background: #1a2238;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: 'Consolas', monospace;
+      color: #e0e0e0;
+      margin-bottom: 15px;
+    }
+
+    .css-preview {
+      margin-top: 15px;
+      padding: 15px;
+      background: #2d374d;
+      border-radius: 6px;
+    }
+
+    .css-explanation {
+      margin-top: 15px;
+      background: #2d374d;
+      padding: 15px;
+      border-radius: 6px;
     }
   </style>
 </head>
@@ -158,7 +235,6 @@
   <button onclick="showSection('css')">CSS</button>
   <button onclick="showSection('htmlcss')">HTML + CSS</button>
 </div>
-
 
 <!-- HTML Section -->
 <div id="html" class="section">
@@ -177,21 +253,19 @@
   </ul>
 
   <p>
-    Think of HTML as the “<strong>bones</strong>” of a website —  
+    Think of HTML as the "<strong>bones</strong>" of a website —  
     everything you see on a page exists because HTML creates it.
   </p>
 
   <!-- Example 1: Heading -->
-  <div class="html-box" >
+  <div class="html-box">
     <h3>Example 1 – Heading (&lt;h2&gt;)</h3>
 
     <div class="code-title">Code:</div>
-    <div class="code-box">
-&lt;h2&gt;This is a section title&lt;/h2&gt;
-    </div>
+    <div class="code-box">&lt;h2&gt;This is a section title&lt;/h2&gt;</div>
 
     <div class="preview-box">
-      <h2>This is a section title</h2>
+      <h2 style="color: #ffffff; margin: 0;">This is a section title</h2>
     </div>
 
     <div class="explain-box">
@@ -204,18 +278,15 @@
     </div>
   </div>
 
-
   <!-- Example 2: Paragraph -->
   <div class="html-box">
     <h3>Example 2 – Paragraph (&lt;p&gt;)</h3>
 
     <div class="code-title">Code:</div>
-    <div class="code-box">
-&lt;p&gt;This is a simple text paragraph.&lt;/p&gt;
-    </div>
+    <div class="code-box">&lt;p&gt;This is a simple text paragraph.&lt;/p&gt;</div>
 
     <div class="preview-box">
-      <p>This is a simple text paragraph.</p>
+      <p style="margin: 0;">This is a simple text paragraph.</p>
     </div>
 
     <div class="explain-box">
@@ -227,18 +298,15 @@
     </div>
   </div>
 
-
   <!-- Example 3: Link -->
   <div class="html-box">
     <h3>Example 3 – Link (&lt;a&gt;)</h3>
 
     <div class="code-title">Code:</div>
-    <div class="code-box">
-&lt;a href=&quot;https://example.com&quot;&gt;Visit website&lt;/a&gt;
-    </div>
+    <div class="code-box">&lt;a href="https://example.com"&gt;Visit website&lt;/a&gt;</div>
 
     <div class="preview-box">
-      <a href="#">Visit website</a>
+      <a href="#" style="color: #3a7bd5;">Visit website</a>
     </div>
 
     <div class="explain-box">
@@ -250,18 +318,15 @@
     </div>
   </div>
 
-
   <!-- Example 4: Button -->
   <div class="html-box">
     <h3>Example 4 – Button (&lt;button&gt;)</h3>
 
     <div class="code-title">Code:</div>
-    <div class="code-box">
-&lt;button&gt;Click me&lt;/button&gt;
-    </div>
+    <div class="code-box">&lt;button&gt;Click me&lt;/button&gt;</div>
 
     <div class="preview-box">
-      <button>Click me</button>
+      <button style="background: #5a657a; color: white; border: none; padding: 8px 16px; border-radius: 4px;">Click me</button>
     </div>
 
     <div class="explain-box">
@@ -273,15 +338,12 @@
     </div>
   </div>
 
-
   <!-- Example 5: Image -->
   <div class="html-box">
     <h3>Example 5 – Image (&lt;img&gt;)</h3>
 
     <div class="code-title">Code:</div>
-    <div class="code-box">
-&lt;img src=&quot;photo.jpg&quot; alt=&quot;A photo&quot; width=&quot;120&quot;&gt;
-    </div>
+    <div class="code-box">&lt;img src="photo.jpg" alt="A photo" width="120"&gt;</div>
 
     <div class="preview-box">
       <img src="https://via.placeholder.com/120" alt="A photo">
@@ -296,7 +358,6 @@
       </ul>
     </div>
   </div>
-
 
   <!-- Example 6: List -->
   <div class="html-box">
@@ -326,7 +387,6 @@
     </div>
   </div>
 
-
   <!-- Example 7: Input -->
   <div class="html-box">
     <h3>Example 7 – Input (&lt;input&gt;)</h3>
@@ -334,57 +394,46 @@
     <p>Here are some useful <code>input</code> types. Each card shows the code and the result:</p>
 
     <div style="display:flex; flex-wrap:wrap; gap:25px; margin-top:15px;">
-
       <!-- text -->
       <div class="input-card">
         <div class="code-title">Code:</div>
-        <div class="code-box">
-  &lt;input type=&quot;text&quot; placeholder=&quot;Your name&quot;&gt;
-        </div>
+        <div class="code-box">&lt;input type="text" placeholder="Your name"&gt;</div>
         <div class="preview-box">
-          <input type="text" placeholder="Your name">
+          <input type="text" placeholder="Your name" style="width: 100%; padding: 5px; border-radius: 4px; border: 1px solid #5a657a; background: #2d374d; color: #e0e0e0;">
         </div>
       </div>
 
       <!-- password -->
       <div class="input-card">
         <div class="code-title">Code:</div>
-        <div class="code-box">
-  &lt;input type=&quot;password&quot; placeholder=&quot;Enter password&quot;&gt;
-        </div>
+        <div class="code-box">&lt;input type="password" placeholder="Enter password"&gt;</div>
         <div class="preview-box">
-          <input type="password" placeholder="Enter password">
+          <input type="password" placeholder="Enter password" style="width: 100%; padding: 5px; border-radius: 4px; border: 1px solid #5a657a; background: #2d374d; color: #e0e0e0;">
         </div>
       </div>
 
       <!-- email -->
       <div class="input-card">
         <div class="code-title">Code:</div>
-        <div class="code-box">
-  &lt;input type=&quot;email&quot; placeholder=&quot;Enter email&quot;&gt;
-        </div>
+        <div class="code-box">&lt;input type="email" placeholder="Enter email"&gt;</div>
         <div class="preview-box">
-          <input type="email" placeholder="Enter email">
+          <input type="email" placeholder="Enter email" style="width: 100%; padding: 5px; border-radius: 4px; border: 1px solid #5a657a; background: #2d374d; color: #e0e0e0;">
         </div>
       </div>
 
       <!-- number -->
       <div class="input-card">
         <div class="code-title">Code:</div>
-        <div class="code-box">
-  &lt;input type=&quot;number&quot; placeholder=&quot;0&quot;&gt;
-        </div>
+        <div class="code-box">&lt;input type="number" placeholder="0"&gt;</div>
         <div class="preview-box">
-          <input type="number" placeholder="0">
+          <input type="number" placeholder="0" style="width: 100%; padding: 5px; border-radius: 4px; border: 1px solid #5a657a; background: #2d374d; color: #e0e0e0;">
         </div>
       </div>
 
       <!-- checkbox -->
       <div class="input-card">
         <div class="code-title">Code:</div>
-        <div class="code-box">
-  &lt;input type=&quot;checkbox&quot;&gt; Subscribe
-        </div>
+        <div class="code-box">&lt;input type="checkbox"&gt; Subscribe</div>
         <div class="preview-box">
           <input type="checkbox"> Subscribe
         </div>
@@ -393,14 +442,11 @@
       <!-- radio -->
       <div class="input-card">
         <div class="code-title">Code:</div>
-        <div class="code-box">
-  &lt;input type=&quot;radio&quot; name=&quot;example&quot;&gt; Option
-        </div>
+        <div class="code-box">&lt;input type="radio" name="example"&gt; Option</div>
         <div class="preview-box">
           <input type="radio" name="example"> Option
         </div>
       </div>
-
     </div>
 
     <div class="explain-box" style="margin-top:20px;">
@@ -417,13 +463,12 @@
   </div>
 </div>
 
-
 <!-- CSS Section -->
 <div id="css" class="section">
   <h2>What is CSS?</h2>
   <p>
     CSS stands for <strong>Cascading Style Sheets</strong>.  
-    If HTML is the “bones”, then CSS is the “<strong>skin and clothing</strong>”.
+    If HTML is the "bones", then CSS is the "<strong>skin and clothing</strong>".
   </p>
 
   <p>CSS controls the appearance of the webpage, including:</p>
@@ -452,79 +497,46 @@
   </div>
 
   <div style="margin-top: 20px;">
-
     <!-- Example 1 -->
-    <div style="margin-top: 20px; padding: 15px; background:linear-gradient(135deg,#8bff68,#667ef7); border-radius:8px;">
-      <div style="font-weight:bold; margin-bottom:8px;">Example 1 – Simple line</div>
+    <div class="css-example">
+      <div class="css-example-title">Example 1 – Simple line</div>
       <p>We draw a thin horizontal line using the border property.</p>
 
-      <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px; ">
+      <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;">
         <!-- box 1 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 250px;<br>height: 0;<br>border-top: 3px solid black;
-          </pre>
-          <div style="width:250px; height:0; border-top:3px solid black; margin-top:10px;"></div>
+        <div style="border:1px solid #5a657a; padding:15px; border-radius:10px; width:260px; background: #2d374d;">
+          <div class="css-code">width: 250px;<br>height: 0;<br>border-top: 3px solid #e0e0e0;</div>
+          <div class="css-preview">
+            <div style="width:250px; height:0; border-top:3px solid #e0e0e0; margin-top:10px;"></div>
+          </div>
         </div>
 
         <!-- box 2 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 200px;<br>height: 0;<br>border-top: 5px dashed blue;
-          </pre>
-          <div style="width:200px; height:0; border-top:5px dashed blue; margin-top:10px;"></div>
+        <div style="border:1px solid #5a657a; padding:15px; border-radius:10px; width:260px; background: #2d374d;">
+          <div class="css-code">width: 200px;<br>height: 0;<br>border-top: 5px dashed #3a7bd5;</div>
+          <div class="css-preview">
+            <div style="width:200px; height:0; border-top:5px dashed #3a7bd5; margin-top:10px;"></div>
+          </div>
         </div>
 
         <!-- box 3 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 180px;<br>height: 0;<br>border-top: 4px dotted green;
-          </pre>
-          <div style="width:180px; height:0; border-top:4px dotted green; margin-top:10px;"></div>
+        <div style="border:1px solid #5a657a; padding:15px; border-radius:10px; width:260px; background: #2d374d;">
+          <div class="css-code">width: 180px;<br>height: 0;<br>border-top: 4px dotted #28c76f;</div>
+          <div class="css-preview">
+            <div style="width:180px; height:0; border-top:4px dotted #28c76f; margin-top:10px;"></div>
+          </div>
         </div>
 
         <!-- box 4 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 250px;<br>height: 0;<br>border-top: 6px double purple;
-          </pre>
-          <div style="width:250px; height:0; border-top:6px double purple; margin-top:10px;"></div>
-        </div>
-
-        <!-- box 5 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 220px;<br>height: 0;<br>border-top: 5px groove orange;
-          </pre>
-          <div style="width:220px; height:0; border-top:5px groove orange; margin-top:10px;"></div>
-        </div>
-
-        <!-- box 6 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 230px;<br>height: 0;<br>border-top: 5px ridge brown;
-          </pre>
-          <div style="width:230px; height:0; border-top:5px ridge brown; margin-top:10px;"></div>
-        </div>
-
-        <!-- box 7 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 240px;<br>height: 0;<br>border-top: 5px inset gray;
-          </pre>
-          <div style="width:240px; height:0; border-top:5px inset gray; margin-top:10px;"></div>
-        </div>
-
-        <!-- box 8 -->
-        <div style="border:2px solid red; padding:15px; border-radius:10px; width:260px;">
-          <pre style="background:white; padding:10px; border-radius:6px;">
-width: 260px;<br>height: 0;<br>border-top: 5px outset red;
-          </pre>
-          <div style="width:260px; height:0; border-top:5px outset red; margin-top:10px;"></div>
+        <div style="border:1px solid #5a657a; padding:15px; border-radius:10px; width:260px; background: #2d374d;">
+          <div class="css-code">width: 250px;<br>height: 0;<br>border-top: 6px double #ff7979;</div>
+          <div class="css-preview">
+            <div style="width:250px; height:0; border-top:6px double #ff7979; margin-top:10px;"></div>
+          </div>
         </div>
       </div>
 
-      <div style="margin-top:25px; background:white; padding:15px; border-radius:8px;">
+      <div class="css-explanation">
         <p><strong>What do these properties mean?</strong></p>
         <ul>
           <li><strong>width</strong>: the horizontal length of the line (you can use 260px, 200px, 150px, 100px…).</li>
@@ -532,7 +544,7 @@ width: 260px;<br>height: 0;<br>border-top: 5px outset red;
           <li>
             <strong>border-top</strong>: draws a line on the top edge.  
             It has 3 parts: <code>thickness style color</code>, for example  
-            <code>3px solid black</code>.
+            <code>3px solid #e0e0e0</code>.
           </li>
         </ul>
 
@@ -542,29 +554,22 @@ width: 260px;<br>height: 0;<br>border-top: 5px outset red;
           <li><code>dashed</code> – broken line made of short dashes</li>
           <li><code>dotted</code> – line made of dots</li>
           <li><code>double</code> – two parallel lines</li>
-          <li><code>groove</code> – looks like a 3D carved line</li>
-          <li><code>ridge</code> – the opposite of groove, looks raised</li>
-          <li><code>inset</code> – looks pressed into the page</li>
-          <li><code>outset</code> – looks like it is coming out of the page</li>
         </ul>
-
-        <p><strong>Extra:</strong> <code>border-radius</code> is used to round corners.  
-          It does not affect these lines, but it is very useful for boxes and buttons in the next examples.</p>
       </div>
     </div>
 
     <!-- Example 2 -->
-    <div style="margin-top: 20px; padding: 15px; background:linear-gradient(135deg,#8bff68,#667ef7);; border-radius:8px;">
-      <div style="font-weight:bold; margin-bottom:8px;">Example 2 – Blue rectangle</div>
+    <div class="css-example">
+      <div class="css-example-title">Example 2 – Blue rectangle</div>
       <p>Adding width, height and background creates a simple box.</p>
 
-      <pre style="background:white; padding:10px; border-radius:6px;">
-width: 150px;<br>height: 80px;<br>background: #1CCAE8;
-      </pre>
+      <div class="css-code">width: 150px;<br>height: 80px;<br>background: #3a7bd5;</div>
 
-      <div style="width: 150px; height: 80px; background:#1CCAE8; margin-top:10px;"></div>
+      <div class="css-preview">
+        <div style="width: 150px; height: 80px; background:#3a7bd5; margin-top:10px;"></div>
+      </div>
 
-      <div style="margin-top:15px; background:white; padding:15px; border-radius:8px;">
+      <div class="css-explanation">
         <p><strong>What do these properties mean?</strong></p>
         <ul>
           <li><strong>width</strong>: how wide the box is.</li>
@@ -576,17 +581,17 @@ width: 150px;<br>height: 80px;<br>background: #1CCAE8;
     </div>
 
     <!-- Example 3 -->
-    <div style="margin-top: 20px; padding: 15px; background:linear-gradient(135deg,#8bff68,#667ef7); border-radius:8px;">
-      <div style="font-weight:bold; margin-bottom:8px;">Example 3 – Rounded rectangle</div>
+    <div class="css-example">
+      <div class="css-example-title">Example 3 – Rounded rectangle</div>
       <p>We add <code>border-radius</code> to round the corners.</p>
 
-      <pre style="background:white; padding:10px; border-radius:6px;">
-width: 150px;<br>height: 80px;<br>background: #56D9BA;<br>border-radius: 15px;
-      </pre>
+      <div class="css-code">width: 150px;<br>height: 80px;<br>background: #28c76f;<br>border-radius: 15px;</div>
 
-      <div style="width: 150px; height: 80px; background:#56D9BA; border-radius:15px; margin-top:10px;"></div>
+      <div class="css-preview">
+        <div style="width: 150px; height: 80px; background:#28c76f; border-radius:15px; margin-top:10px;"></div>
+      </div>
 
-      <div style="margin-top:15px; background:white; padding:15px; border-radius:8px;">
+      <div class="css-explanation">
         <p><strong>What do these properties mean?</strong></p>
         <ul>
           <li><strong>width</strong>: the width of the box.</li>
@@ -599,61 +604,23 @@ width: 150px;<br>height: 80px;<br>background: #56D9BA;<br>border-radius: 15px;
     </div>
 
     <!-- Example 4 -->
-    <div style="margin-top: 20px; padding: 15px; background:linear-gradient(135deg,#8bff68,#667ef7); border-radius:8px;">
-      <div style="font-weight:bold; margin-bottom:8px;">Example 4 – Circle</div>
+    <div class="css-example">
+      <div class="css-example-title">Example 4 – Circle</div>
       <p>A perfect circle is made using equal width + height and border-radius: 50%.</p>
 
-      <pre style="background:white; padding:10px; border-radius:6px;">
-width: 100px;<br>height: 100px;<br>background: #91E413;<br>border-radius: 50%;
-      </pre>
+      <div class="css-code">width: 100px;<br>height: 100px;<br>background: #ff7979;<br>border-radius: 50%;</div>
 
-      <div style="width: 100px; height: 100px; background:#91E413; border-radius:50%; margin-top:10px;"></div>
-      <div style="margin-top:15px; background:white; padding:15px; border-radius:8px;">
+      <div class="css-preview">
+        <div style="width: 100px; height: 100px; background:#ff7979; border-radius:50%; margin-top:10px;"></div>
+      </div>
+
+      <div class="css-explanation">
         <p><strong>What do these properties mean?</strong></p>
         <ul>
           <li><strong>width & height:</strong> must be equal to form a circle.</li>
           <li><strong>background:</strong> fill color of the circle.</li>
           <li><strong>border-radius: 50%:</strong> transforms a square into a perfect circle.</li>
         </ul>
-      </div>
-    </div>
-
-    <!-- Example 5 -->
-    <div style="margin-top: 20px; padding: 15px; background:linear-gradient(135deg,#8bff68,#667ef7); border-radius:8px;">
-      <div style="font-weight:bold; margin-bottom:8px;">Example 5 – Red box with border</div>
-      <p>This example shows how to style a box with rounded corners and a border.</p>
-
-
-      <pre style="background:white; padding:10px; border-radius:6px;">
-width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 10px;<br>border: 3px solid black;
-      </pre>
-
-      <div style="width: 120px; height: 80px; background:red; border-radius:10px; border:3px solid black; margin-top:10px;"></div>
-      <div style="margin-top:15px; background:white; padding:15px; border-radius:8px;">
-        <p><strong>What do these properties mean?</strong></p>
-        <ul>
-          <li><strong>width</strong>: how wide the box is.</li>
-          <li><strong>height</strong>: how tall the box is.</li>
-          <li><strong>background</strong>: the fill color of the box.</li>
-          <li><strong>border-radius: 10px</strong>: rounds the corners by 10 pixels.</li>
-          <li><strong>border</strong>: adds a black outline around the box.</li>
-        </ul>
-
-        <p><strong>px vs % for border-radius:</strong></p>
-        <ul>
-          <li><strong>px</strong> = fixed corner size.  
-            Example: <code>10px</code> → always the same curve.</li>
-
-          <li><strong>%</strong> = based on the element’s size.  
-            Example: <code>50%</code> → makes circles when width = height.</li>
-
-          <li>This box uses <strong>10px</strong> because we want rounded corners, not a circle.</li>
-        </ul>
-
-        <p><strong>In short:</strong><br>
-          • <strong>10px</strong> = rounded rectangle<br>
-          • <strong>50%</strong> = circle (when width = height)
-        </p>
       </div>
     </div>
   </div>
@@ -693,21 +660,19 @@ width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 10px;<br>bo
     </ul>
   </div>
 
-
-
-  <!-- Example 1 – Colored Box (最简单形状 + CSS) -->
+  <!-- Example 1 – Colored Box -->
   <div class="html-box">
     <h3>Example 1 – Colored Box</h3>
 
     <div class="code-title">Code:</div>
     <div class="code-box">
-&lt;div class=&quot;color-box&quot;&gt;&lt;/div&gt;
+&lt;div class="color-box"&gt;&lt;/div&gt;
 
 &lt;style&gt;
   .color-box {
     width: 120px;
     height: 80px;
-    background: #3498db;
+    background: #3a7bd5;
     border-radius: 10px;
   }
 &lt;/style&gt;
@@ -727,22 +692,20 @@ width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 10px;<br>bo
       <ul>
         <li><code>width: 120px;</code> → sets the box width.</li>
         <li><code>height: 80px;</code> → sets the box height.</li>
-        <li><code>background: #3498db;</code> → gives the box a blue background.</li>
+        <li><code>background: #3a7bd5;</code> → gives the box a blue background.</li>
         <li><code>border-radius: 10px;</code> → rounds the corners (soft rectangle).</li>
       </ul>
       <p>This is the simplest example of HTML + CSS: HTML = box, CSS = shape + color.</p>
     </div>
   </div>
 
-
-
-  <!-- Example 2 – Styled Button (HTML 按钮 + CSS 外观) -->
+  <!-- Example 2 – Styled Button -->
   <div class="html-box">
     <h3>Example 2 – Styled Button</h3>
 
     <div class="code-title">Code:</div>
     <div class="code-box">
-&lt;button class=&quot;btn-green&quot;&gt;Click me&lt;/button&gt;
+&lt;button class="btn-green"&gt;Click me&lt;/button&gt;
 
 &lt;style&gt;
   .btn-green {
@@ -784,15 +747,13 @@ width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 10px;<br>bo
     </div>
   </div>
 
-
-
-  <!-- Example 3 – Card Component (HTML 结构 + CSS UI 卡片) -->
+  <!-- Example 3 – Card Component -->
   <div class="html-box">
     <h3>Example 3 – Card Component</h3>
 
     <div class="code-title">Code:</div>
     <div class="code-box">
-&lt;div class=&quot;card&quot;&gt;
+&lt;div class="card"&gt;
   &lt;h4&gt;Hello!&lt;/h4&gt;
   &lt;p&gt;This is a simple card.&lt;/p&gt;
 &lt;/div&gt;
@@ -811,8 +772,8 @@ width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 10px;<br>bo
 
     <div class="preview-box">
       <div class="card">
-        <h4>Hello!</h4>
-        <p>This is a simple card.</p>
+        <h4 style="margin: 0 0 10px 0; color: white;">Hello!</h4>
+        <p style="margin: 0; color: white;">This is a simple card.</p>
       </div>
     </div>
 
@@ -827,12 +788,12 @@ width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 10px;<br>bo
       <p><strong>CSS (how it becomes a real UI card):</strong></p>
       <ul>
         <li><code>width: 200px;</code> → sets a fixed card width.</li>
-        <li><code>padding: 15px;</code> → adds space inside the card so text doesn’t touch the edges.</li>
+        <li><code>padding: 15px;</code> → adds space inside the card so text doesn't touch the edges.</li>
         <li><code>border-radius: 10px;</code> → rounds the corners for a softer, modern look.</li>
         <li><code>background: #ff7979;</code> → the background color of the card.</li>
 
         <li>
-          <code>box-shadow: 0 2px 8px rgba(0,0,0,0.1);</code> → adds a soft shadow to make the card “float”.
+          <code>box-shadow: 0 2px 8px rgba(0,0,0,0.1);</code> → adds a soft shadow to make the card "float".
           <ul>
             <li><strong>0</strong> → horizontal offset (shadow stays centered).</li>
             <li><strong>2px</strong> → vertical offset (shadow moves slightly downward).</li>
@@ -846,11 +807,8 @@ width: 120px;<br>height: 80px;<br>background: red;<br>border-radius: 10px;<br>bo
 
       <p><strong>In short:</strong> HTML provides structure, and CSS adds style, color, spacing, and shadow to transform it into a clean UI card.</p>
     </div>
-
   </div>
-
 </div>
-
 
 <script>
   function showSection(id) {
